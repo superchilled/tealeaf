@@ -1,4 +1,4 @@
-# easy_questions.rb 
+# easy_questions/quiz_1.rb 
 
 # arrays.rb 
 
