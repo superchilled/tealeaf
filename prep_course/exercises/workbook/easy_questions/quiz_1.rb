@@ -1,7 +1,5 @@
 # easy_questions/quiz_1.rb 
 
-# arrays.rb 
-
 def exercise(num)
 
   puts "\nEXERCISE #{num}\n\n"
