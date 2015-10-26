@@ -83,8 +83,118 @@ the second iteration prints 2 and pops 3)"
 # Exercise 5
 exercise(5)
 
+puts "You can refactor this as a while loop to solve the issue"
+
+def factors(number)
+  dividend = number
+  divisors = []
+  while dividend > 0
+    divisors << number / dividend if number % dividend == 0
+    dividend -= 1
+  end  
+  divisors
+end
 
 
+puts factors(12)
+
+# Exercise 6
+exercise(6)
+
+puts "Using + creates a new array (concatenating the existing array and
+the new element) whereas << works by adding to the existing array."
+
+
+# Exercise 7
+exercise(7)
+
+puts "The issue is that the variable 'limit' is outside the scope of the method call.
+You could either declare it within the method or pass it as an argument to the method.
+The second option is probably more useful as it makes the method more flexible (i.e.
+you can vary the limit)"
+
+puts "Within the method:"
+
+def fib(first_num, second_num)
+  limit = 15
+  while second_num < limit
+    sum = first_num + second_num
+    first_num = second_num
+    second_num = sum
+  end
+  sum
+end
+
+result = fib(0, 1)
+puts "result is #{result}"
+
+puts "As an argument to the method:"
+
+def fib(first_num, second_num, limit)
+  while second_num < limit
+    sum = first_num + second_num
+    first_num = second_num
+    second_num = sum
+  end
+  sum
+end
+
+result = fib(0, 1, 15)
+puts "result is #{result}"
+
+
+# Exercise 8
+exercise(8)
+
+def titleize(str)
+
+  str = str.split.each {|x| x.capitalize!}.join(" ")
+
+  return str
+
+end
+
+puts titleize("this is a title")
+
+
+# Exercise 8
+exercise(8)
+
+def age_group_hash(hash,group)
+
+  hash["age_group"] = group
+
+end
+
+def add_age_group(hash)
+
+  hash.each do |k, v|
+
+    case v["age"]
+
+    when  0..17
+      age_group_hash(v,"kid")
+    when 18..64
+      age_group_hash(v,"adult")
+    else
+      age_group_hash(v,"senior")
+    end
+    
+  end
+
+end
+
+munsters = { 
+  "Herman" => { "age" => 32, "gender" => "male" }, 
+  "Lily" => { "age" => 30, "gender" => "female" }, 
+  "Grandpa" => { "age" => 402, "gender" => "male" }, 
+  "Eddie" => { "age" => 10, "gender" => "male" },
+  "Marilyn" => { "age" => 23, "gender" => "female"}
+}
+
+add_age_group(munsters)
+
+puts munsters
 
 
 
