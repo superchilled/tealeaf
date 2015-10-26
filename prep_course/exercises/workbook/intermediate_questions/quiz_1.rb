@@ -157,8 +157,8 @@ end
 puts titleize("this is a title")
 
 
-# Exercise 8
-exercise(8)
+# Exercise 9
+exercise(9)
 
 def age_group_hash(hash,group)
 
