@@ -77,6 +77,27 @@ puts create_UUID
 # Exercise 5
 exercise(5)
 
+def is_a_number?(w)
+  w =~ /\A\d+\z/ ? true : false
+end
 
+def dot_separated_ip_address?(input_string)
+  dot_separated_words = input_string.split(".")
+  if dot_separated_words.length != 4 
+    return false
+  else
+    while dot_separated_words.size > 0 do
+      word = dot_separated_words.pop
+      if !is_a_number?(word)
+        return false
+      end
+    end
+    return true
+  end
+end
+
+ip = "10.4.5.11"
+
+puts dot_separated_ip_address?(ip)
 
 
