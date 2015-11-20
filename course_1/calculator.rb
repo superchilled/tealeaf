@@ -16,27 +16,27 @@ def is_num(str)
   end
 end
 
-num1 = ""
-num2 = ""
-
-loop do
-  say "What's the first number?"
-  num1 = gets.chomp
-  if is_num(num1)
-    break
+def get_num(order)
+  loop do
+    say "What's the #{order} number?"
+    num = gets.chomp
+    if is_num(num)
+      return num
+    end
   end
 end
 
+num1 = get_num("first")
+num2 = get_num("second")
+operator = ""
+
 loop do
-  say "What's the second number?"
-  num2 = gets.chomp
-  if is_num(num2)
+  say "1) add 2) subtract 3) multiply 4) divide"
+  operator = gets.chomp
+  if operator.to_i.between?(1,4)
     break
   end
 end
-
-say "1) add 2) subtract 3) multiply 4) divide"
-operator = gets.chomp
 
 if operator == '1'
   result = num1.to_i + num2.to_i
