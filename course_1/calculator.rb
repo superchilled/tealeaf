@@ -9,10 +9,10 @@ def say(msg)
 end
 
 def is_num(str)
-  if str =~ /\A[-+]?\d+\z/
-    return true
+  if str =~ /\A[-+]?\d*\.?\d+\z/
+    true
   else
-    return false
+    false
   end
 end
 
@@ -20,9 +20,7 @@ def get_num(order)
   loop do
     say "What's the #{order} number?"
     num = gets.chomp
-    if is_num(num)
-      return num
-    end
+    return num if is_num(num)
   end
 end
 
